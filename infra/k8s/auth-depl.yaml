@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image: nsp86/auth
+          image: us.gcr.io/ticket-hub-278018/auth
 ---
 apiVersion: v1
 kind: Service
