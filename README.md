@@ -8,10 +8,14 @@ Sell, buy and share tickets.
 
 ## commands not to forget
 
+alias
+
+kubectl - k8
+
 list all clusters
 
-    `k8 config get-contexts`
+    k8 config get-contexts
 
 switch between clusters
 
-    `kubectl config use-context CONTEXT_NAME`
+    k8 config use-context CONTEXT_NAME

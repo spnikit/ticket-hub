@@ -13,10 +13,10 @@ router.post(
       .withMessage("Password must be between 4 and 20 characters"),
   ],
   (req: Request, res: Response) => {
-    // ######## REQUEST VALIDATION #########
+    // REQUEST VALIDATION
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).send(errors.array());
+      throw new Error("Bad credentials, try again!");
     }
 
     const { email, password } = req.body;
