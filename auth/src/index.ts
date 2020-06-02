@@ -1,6 +1,8 @@
 import express from "express";
 import "express-async-errors";
 import { json } from "body-parser";
+import mongoose from "mongoose";
+
 import { currentUserRouter } from "./routes/current-user";
 import { signinRouter } from "./routes/signin";
 import { signupRouter } from "./routes/signup";
@@ -26,6 +28,22 @@ app.all("*", () => {
 app.use(errorHandler);
 
 // ######### SERVER FIRE UP ##############
-app.listen(3000, () => {
-  console.log("Server is listening on PORT 3000!");
-});
+const start = async () => {
+  try {
+    await mongoose.connect("mongodb://auth-mongo-srv:27017", {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+    });
+  } catch (err) {
+    console.log("MongodDB connection error", err);
+  }
+
+  console.log("MongoDB connected");
+
+  app.listen(3000, () => {
+    console.log("Server is listening on PORT 3000!");
+  });
+};
+
+start();
