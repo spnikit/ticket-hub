@@ -30,7 +30,7 @@ router.post(
     }
 
     const user = User.build({ email, password });
-    const u = await user.save();
+    await user.save();
 
     // Create JWT
     const userJwt = jwt.sign(

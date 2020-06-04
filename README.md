@@ -19,3 +19,7 @@ list all clusters
 switch between clusters
 
     k8 config use-context CONTEXT_NAME
+
+create a secret
+
+    k8 create secret generic jwt-secret --from-literal=jwt=abc
